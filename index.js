@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const nunjucks = require('nunjucks');
 
@@ -8,6 +9,8 @@ nunjucks.configure('views', {
   autoescape: true,
   express: app,
 });
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
   res.render('index.html');
