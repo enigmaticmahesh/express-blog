@@ -13,7 +13,11 @@ nunjucks.configure('views', {
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-  res.render('index.html');
+  res.render('index.html.njk');
+});
+
+app.get('/blog', (req, res) => {
+  res.render('article.html.njk');
 });
 
 app
